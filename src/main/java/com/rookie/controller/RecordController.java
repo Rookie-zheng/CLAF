@@ -78,6 +78,7 @@ public class RecordController {
         head.add("存入金钱时间");
         head.add("取出金钱时间");
         head.add("剩余金额");
+        head.add("创建时间");
 
         List<List<String>> body = new ArrayList<>();
         int i = 1;
@@ -89,6 +90,7 @@ public class RecordController {
             bodyValue.add(String.valueOf(re.getInputTime()));
             bodyValue.add(String.valueOf(re.getOutputTime()));
             bodyValue.add(String.valueOf(re.getSum()));
+            bodyValue.add(String.valueOf(re.getCreateTime()));
             body.add(bodyValue);
             i++;
         }
