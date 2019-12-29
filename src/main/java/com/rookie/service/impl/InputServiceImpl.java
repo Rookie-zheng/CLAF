@@ -33,6 +33,7 @@ public class InputServiceImpl implements InputService {
         record.setCreateTime(new Date());
         record.setInputSum(input.getPrice());
         record.setInputTime(input.getCreateTime());
+        record.setRemark(input.getRemark());
         record.setSum(inputRepository.sumInputPrice() + input.getPrice() - inputRepository.sumOutputPrice());
         recordRepository.save(record);
         return inputRepository.save(input);
@@ -78,6 +79,7 @@ public class InputServiceImpl implements InputService {
         record.setCreateTime(new Date());
         record.setInputSum(input.getPrice());
         record.setInputTime(t.getCreateTime());
+        record.setRemark(t.getRemark());
         record.setSum(inputRepository.sumInputPrice() + input.getPrice() - inputRepository.sumOutputPrice());
         recordRepository.save(record);
         return inputRepository.save(t);

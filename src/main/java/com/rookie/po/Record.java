@@ -22,6 +22,7 @@ public class Record {
     private float inputSum;
     private float outputSum;
     private float sum;
+    private String remark;
     @Temporal(TemporalType.TIMESTAMP)
     private Date inputTime;
     @Temporal(TemporalType.TIMESTAMP)

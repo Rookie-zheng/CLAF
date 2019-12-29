@@ -33,6 +33,7 @@ public class OutputServiceImpl implements OutputService {
         record.setCreateTime(new Date());
         record.setOutputSum(output.getPrice());
         record.setOutputTime(output.getCreateTime());
+        record.setRemark(output.getRemark());
         record.setSum(outputRepository.sumInputPrice() - outputRepository.sumOutputPrice() - output.getPrice());
         recordRepository.save(record);
         return outputRepository.save(output);
@@ -81,6 +82,7 @@ public class OutputServiceImpl implements OutputService {
         record.setOutputSum(t.getPrice());
         record.setOutputSum(outputRepository.sumOutputPrice());
         record.setOutputTime(t.getCreateTime());
+        record.setRemark(t.getRemark());
         record.setSum(outputRepository.sumInputPrice() - outputRepository.sumOutputPrice() - output.getPrice());
         recordRepository.save(record);
         return outputRepository.save(t);
