@@ -10,10 +10,9 @@ Target Server Type    : MYSQL
 Target Server Version : 50728
 File Encoding         : 65001
 
-Date: 2019-12-29 02:38:18
+Date: 2019-12-30 13:56:25
 */
-/*
-*/
+
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
@@ -27,7 +26,7 @@ CREATE TABLE `t_input` (
   `remark` varchar(255) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_input
@@ -35,6 +34,8 @@ CREATE TABLE `t_input` (
 INSERT INTO `t_input` VALUES ('24', '2019-12-29 00:03:28', '0', '初始化', '2019-12-29 00:03:48');
 INSERT INTO `t_input` VALUES ('27', '2019-12-29 00:31:17', '432432.0', '工资', null);
 INSERT INTO `t_input` VALUES ('28', '2020-12-29 01:44:23', '110000.0', '股票生者', null);
+INSERT INTO `t_input` VALUES ('29', '2019-12-29 16:22:34', '232.0', '兼职', null);
+INSERT INTO `t_input` VALUES ('30', '2019-12-29 16:26:06', '1000000.0', '年终奖', null);
 
 -- ----------------------------
 -- Table structure for t_output
@@ -47,13 +48,14 @@ CREATE TABLE `t_output` (
   `remark` varchar(255) DEFAULT NULL,
   `update_time` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_output
 -- ----------------------------
 INSERT INTO `t_output` VALUES ('2', '2019-12-28 17:54:24.000000', '0', '初始化', '2019-12-28 17:54:34.000000');
 INSERT INTO `t_output` VALUES ('11', '2019-12-29 00:31:26.000000', '11', '吃饭', null);
+INSERT INTO `t_output` VALUES ('12', '2019-12-29 16:23:21.000000', '432432', '买房首付', null);
 
 -- ----------------------------
 -- Table structure for t_record
@@ -68,15 +70,19 @@ CREATE TABLE `t_record` (
   `input_time` datetime(6) DEFAULT NULL,
   `output_sum` float NOT NULL,
   `output_time` datetime(6) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_record
 -- ----------------------------
-INSERT INTO `t_record` VALUES ('13', '2020-01-01 00:31:23.000000', '432432', null, '432432', '2019-12-29 00:31:17.000000', '0', null);
-INSERT INTO `t_record` VALUES ('14', '2019-12-29 00:31:33.334000', '432421', null, '0', null, '11', '2019-12-29 00:31:26.000000');
-INSERT INTO `t_record` VALUES ('15', '2019-12-29 01:44:48.414000', '542421', null, '110000', '2020-12-29 01:44:23.000000', '0', null);
+INSERT INTO `t_record` VALUES ('13', '2020-01-01 00:31:23.000000', '432432', null, '432432', '2019-12-29 00:31:17.000000', '0', null, null);
+INSERT INTO `t_record` VALUES ('14', '2019-12-29 00:31:33.334000', '432421', null, '0', null, '11', '2019-12-29 00:31:26.000000', null);
+INSERT INTO `t_record` VALUES ('15', '2019-12-29 01:44:48.414000', '542421', null, '110000', '2020-12-29 01:44:23.000000', '0', null, null);
+INSERT INTO `t_record` VALUES ('16', '2019-12-29 16:22:43.490000', '542653', null, '232', '2019-12-29 16:22:34.000000', '0', null, null);
+INSERT INTO `t_record` VALUES ('17', '2019-12-29 16:23:29.317000', '110221', null, '0', null, '432432', '2019-12-29 16:23:21.000000', null);
+INSERT INTO `t_record` VALUES ('18', '2019-12-29 16:26:19.645000', '1110220', null, '1000000', '2019-12-29 16:26:06.000000', '0', null, '年终奖');
 
 -- ----------------------------
 -- Table structure for t_user

@@ -34,7 +34,7 @@ public class RecordServiceImpl implements RecordService {
     }
 
     @Override
-    public Map<String, List<Record>> archiveBlog() {
+    public Map<String, List<Record>> archiveRecord() {
         List<String> years = recordRepository.findGroupYear();
         Map<String, List<Record>> map = new HashMap<>();
         for (String year : years){

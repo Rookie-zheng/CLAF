@@ -9,8 +9,6 @@ import com.rookie.util.ExcelUtils;
 import com.rookie.util.RemainingSum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -61,11 +59,12 @@ public class RecordController {
 
     @ApiOperation("文件归档接口")
     @GetMapping("/record/archives")
-    public String archives(Model model){
-        model.addAttribute("archiveMap",recordService.archiveBlog());
+    public String archives(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)Pageable pageable,Model model){
+        model.addAttribute("archiveMap",recordService.archiveRecord());
         model.addAttribute("blogCount",recordService.countRecord());
         return "admin/archives";
     }
+
 
     @ApiOperation("打印财务记录")
     @RequestMapping("/record/excel")

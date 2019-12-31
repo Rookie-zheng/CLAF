@@ -15,7 +15,7 @@ public interface RecordService {
 
     void deleteRecord(Long id);
 
-    Map<String,List<Record>> archiveBlog();
+    Map<String,List<Record>> archiveRecord();
 
     Long countRecord();
 }
