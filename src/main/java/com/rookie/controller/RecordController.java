@@ -28,7 +28,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-@Api(tags = "后台登录接口")
+@Api(tags = "字典接口")
 public class RecordController {
     @Autowired
     private RemainingSum remainingSum;
@@ -42,14 +42,14 @@ public class RecordController {
     @Autowired
     private RecordService recordService;
 
-    @ApiOperation("余额接口")
+    @ApiOperation("字典接口")
     @GetMapping("/record")
     public String record(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC) Pageable pageable, Model model){
         model.addAttribute("page",recordService.listRecord(pageable));
         return "admin/record";
     }
 
-    @ApiOperation("根据id删除分类")
+    @ApiOperation("根据id删除字典")
     @GetMapping("/record/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes attributes) {
         recordService.deleteRecord(id);

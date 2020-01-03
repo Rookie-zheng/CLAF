@@ -27,14 +27,14 @@ public class InputController {
     @Autowired
     private InputService inputService;
 
-    @ApiOperation("分类页显示接口")
+    @ApiOperation("存入页显示接口")
     @GetMapping("/input")
     public String input(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)Pageable pageable, Model model){
         model.addAttribute("page",inputService.listInput(pageable) );
         return "admin/input";
     }
 
-    @ApiOperation("根据id删除分类")
+    @ApiOperation("根据id删除存入")
     @GetMapping("/input/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes attributes) {
         inputService.deleteType(id);
@@ -88,7 +88,7 @@ public class InputController {
     }
 
     //新增分类
-    @ApiOperation("分类新增接口")
+    @ApiOperation("存入新增接口")
     @GetMapping("/inputNew")
     public String inputNew(Model model) {
         model.addAttribute("input", new Input());

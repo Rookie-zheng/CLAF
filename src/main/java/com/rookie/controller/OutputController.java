@@ -33,21 +33,21 @@ public class OutputController {
     @Autowired
     private RemainingSum remainingSum;
 
-    @ApiOperation("分类页显示接口")
+    @ApiOperation("取出页显示接口")
     @GetMapping("/output")
     public String output(@PageableDefault(size = 10,sort = {"id"},direction = Sort.Direction.DESC)Pageable pageable, Model model){
         model.addAttribute("page",outputService.listOutput(pageable) );
         return "admin/output";
     }
 
-    @ApiOperation("根据id删除分类")
+    @ApiOperation("根据id删除取出")
     @GetMapping("/output/{id}/delete")
     public String delete(@PathVariable Long id, RedirectAttributes attributes) {
         outputService.deleteOutput(id);
         attributes.addFlashAttribute("message", "删除成功");
         return "redirect:/admin/output";
     }
-    @ApiOperation("分类添加判断是否重复接口")
+    @ApiOperation("取出添加判断是否重复接口")
     @PostMapping("/outputNew")
     public String post(@Valid Output output, BindingResult result, RedirectAttributes attributes, Model model) {
 
@@ -67,7 +67,7 @@ public class OutputController {
         return "redirect:/admin/output";
     }
 
-    @ApiOperation("分类修改判断是否重复接口")
+    @ApiOperation("取出修改判断是否重复接口")
     @PostMapping("/output/{id}")
     public String editPost(@Valid Output output, BindingResult result,@PathVariable Long id, RedirectAttributes attributes) throws NotFoundException {
         Output type1 = outputService.getTypeByRemark(output.getRemark());
@@ -90,7 +90,7 @@ public class OutputController {
         return "redirect:/admin/output";
     }
 
-    @ApiOperation("根据id修改分类接口")
+    @ApiOperation("根据id修改取出接口")
     @GetMapping("/output/{id}/output")
     public String editOutput(@PathVariable Long id, Model model) {
         Output output = outputService.getOutput(id);
@@ -99,7 +99,7 @@ public class OutputController {
     }
 
     //新增分类
-    @ApiOperation("分类新增接口")
+    @ApiOperation("取出新增接口")
     @GetMapping("/outputNew")
     public String outputNew(Model model) {
         model.addAttribute("output", new Output());
